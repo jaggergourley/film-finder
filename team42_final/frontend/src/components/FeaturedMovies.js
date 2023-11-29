@@ -21,10 +21,14 @@ const FeaturedMovies = () => {
   }, []);
 
   return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard key={movie._id} movie={movie} />
-      ))}
+    <div className="container">
+      <div className="row">
+        {movies.map((movie) => (
+          <div className="col-sm-4 mb-3" key={movie._id}>
+            <MovieCard movie={movie} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
