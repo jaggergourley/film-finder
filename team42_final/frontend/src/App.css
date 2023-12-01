@@ -1,3 +1,5 @@
+/* App.css */
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.navbar {
+  background-color: #121212; /* Dark mode background color for the navbar */
+  color: #fff; /* White text color for navbar links */
+}
+
+.navbar-brand, .nav-link {
+  color: #fff; /* White text color for navbar links */
+}
+
+.nav-link:hover {
+  color: #bbb; /* Lighter color for hover effect */
 }

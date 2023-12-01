@@ -1,4 +1,4 @@
-// index.js
+// backend/node_modules/index.js
 
 const express = require("express");
 const mongoose = require("mongoose");
