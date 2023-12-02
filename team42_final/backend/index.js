@@ -12,10 +12,19 @@ app.use(express.json());
 // Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/team42db");
 
-// Get all movies
+// Endpoint with sorting functionality
 app.get("/movies", async (req, res) => {
   try {
-    const movies = await Movie.find();
+    let query = Movie.find();
+
+    // Sorting
+    if (req.query.sortBy && req.query.order) {
+      const sortField = req.query.sortBy;
+      const sortOrder = req.query.order === "desc" ? -1 : 1; // 'desc' for descending, otherwise ascending
+      query = query.sort({ [sortField]: sortOrder });
+    }
+
+    const movies = await query.exec();
     res.json(movies);
   } catch (error) {
     res.status(500).send(error.message);
