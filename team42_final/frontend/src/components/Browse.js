@@ -45,6 +45,16 @@ const Browse = () => {
     });
   };
 
+  const handleDelete = async (movieId) => {
+    try {
+      await axios.delete(`http://localhost:5000/movies/${movieId}`);
+      // Remove deleted movie from state
+      setMovies(movies.filter((movie) => movie._id !== movieId));
+    } catch (error) {
+      console.error("Error deleting movie", error);
+    }
+  };
+
   // CSS for the movie grid
   const movieGridStyle = {
     display: "grid",
@@ -84,7 +94,13 @@ const Browse = () => {
         {movies.map((movie) => (
           <MovieCard key={movie._id} movie={movie} onClick={openDialog} />
         ))}
-        <MovieDialog movie={selectedMovie} onClose={closeDialog} />
+        {selectedMovie && (
+          <MovieDialog
+            movie={selectedMovie}
+            onClose={closeDialog}
+            onDelete={handleDelete} // Pass handleDelete as onDelete
+          />
+        )}
       </div>
     </div>
   );

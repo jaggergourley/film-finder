@@ -2,8 +2,13 @@
 
 import React from "react";
 
-const MovieDialog = ({ movie, onClose }) => {
+const MovieDialog = ({ movie, onClose, onDelete }) => {
   if (!movie) return null;
+
+  const handleDelete = () => {
+    onDelete(movie._id);
+    onClose(); // Close dialog after delete
+  };
 
   // Function to format duration from minutes to hour:minute format
   const formatDuration = (duration) => {
@@ -74,6 +79,12 @@ const MovieDialog = ({ movie, onClose }) => {
           <p>
             <strong>Description:</strong> {movie.description}
           </p>
+          <button
+            onClick={handleDelete}
+            style={{ backgroundColor: "#ff6347", color: "#fff" }}
+          >
+            Delete Movie
+          </button>
           <button
             onClick={onClose}
             style={{ backgroundColor: "#dcdcdc", color: "#1e1e1e" }}
