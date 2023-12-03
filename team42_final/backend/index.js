@@ -17,6 +17,22 @@ app.get("/movies", async (req, res) => {
   try {
     let query = Movie.find();
 
+    // // Add filters for genre, title, director, and actor
+    // if (req.query.genre) {
+    //   query = query.where("genre").equals(req.query.genre);
+    // }
+    // if (req.query.title) {
+    //   query = query.where("title").regex(new RegExp(req.query.title, "i"));
+    // }
+    // if (req.query.director) {
+    //   query = query
+    //     .where("director")
+    //     .regex(new RegExp(req.query.director, "i"));
+    // }
+    // if (req.query.actor) {
+    //   query = query.where("actors").regex(new RegExp(req.query.actor, "i"));
+    // }
+
     // Sorting
     if (req.query.sortBy && req.query.order) {
       const sortField = req.query.sortBy;

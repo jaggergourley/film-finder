@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import FeaturedMovies from "./components/FeaturedMovies";
 import Browse from "./components/Browse";
 import LikedMovies from "./components/LikedMovies";
+import StudentInfo from "./components/StudentInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
           />
           <Route path="/browse" element={<Browse />} />
           <Route path="/liked-movies" element={<LikedMovies />} />
+          <Route path="/student-info" element={<StudentInfo />} />
         </Routes>
       </div>
     </Router>

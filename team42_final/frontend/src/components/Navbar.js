@@ -26,6 +26,11 @@ const Navbar = () => {
               Liked Movies
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/student-info">
+              Student Info
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

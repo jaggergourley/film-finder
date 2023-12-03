@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import MovieDialog from "./MovieDialog";
 
 const Browse = () => {
   const [movies, setMovies] = useState([]);
@@ -23,6 +24,16 @@ const Browse = () => {
     } catch (error) {
       console.error("Error fetching movies", error);
     }
+  };
+
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const openDialog = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const closeDialog = () => {
+    setSelectedMovie(null);
   };
 
   // Function to handle sorting criteria change
@@ -63,19 +74,43 @@ const Browse = () => {
           <option value="title-desc">Title (Z-A)</option>
           <option value="year-asc">Year (Oldest First)</option>
           <option value="year-desc">Year (Newest First)</option>
-          <option value="duration-asc">Duration (Shortest First)</option>
-          <option value="duration-desc">Duration (Longest First)</option>
+          <option value="duration-asc">Runtime (Shortest First)</option>
+          <option value="duration-desc">Runtime (Longest First)</option>
           <option value="rating-asc">Rating (Lowest First)</option>
           <option value="rating-desc">Rating (Highest First)</option>
         </select>
       </div>
       <div style={movieGridStyle}>
         {movies.map((movie) => (
-          <MovieCard key={movie._id} movie={movie} />
+          <MovieCard key={movie._id} movie={movie} onClick={openDialog} />
         ))}
+        <MovieDialog movie={selectedMovie} onClose={closeDialog} />
       </div>
     </div>
   );
 };
 
 export default Browse;
+
+// const genres = [
+//   "Action",
+//   "Adventure",
+//   "Animation",
+//   "Biography",
+//   "Crime",
+//   "Comedy",
+//   "Drama",
+//   "Family",
+//   "Fantasy",
+//   "Film-Noir",
+//   "History",
+//   "Horror",
+//   "Music",
+//   "Musical",
+//   "Mystery",
+//   "Romance",
+//   "Sci-Fi",
+//   "Thriller",
+//   "Western",
+//   "War",
+// ];
