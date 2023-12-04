@@ -2,6 +2,7 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { LikedMoviesProvider } from "./contexts/LikedMoviesContext";
 import Navbar from "./components/Navbar";
 import FeaturedMovies from "./components/FeaturedMovies";
 import Browse from "./components/Browse";
@@ -18,30 +19,32 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className="App" style={appStyle}>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <header className="jumbotron">
-                  <h1 className="display-4">Featured Movies</h1>
-                  <p className="lead">
-                    Check out some of the greatest movies of all time!
-                  </p>
-                </header>
-                <FeaturedMovies />
-              </>
-            }
-          />
-          <Route path="/browse" element={<Browse />} />
-          <Route path="/liked-movies" element={<LikedMovies />} />
-          <Route path="/student-info" element={<StudentInfo />} />
-        </Routes>
-      </div>
-    </Router>
+    <LikedMoviesProvider>
+      <Router>
+        <div className="App" style={appStyle}>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <header className="jumbotron">
+                    <h1 className="display-4">Featured Movies</h1>
+                    <p className="lead">
+                      Check out some of the greatest movies of all time!
+                    </p>
+                  </header>
+                  <FeaturedMovies />
+                </>
+              }
+            />
+            <Route path="/browse" element={<Browse />} />
+            <Route path="/liked-movies" element={<LikedMovies />} />
+            <Route path="/student-info" element={<StudentInfo />} />
+          </Routes>
+        </div>
+      </Router>
+    </LikedMoviesProvider>
   );
 };
 

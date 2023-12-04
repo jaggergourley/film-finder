@@ -52,6 +52,14 @@ const MovieDialog = ({ movie, onClose, onDelete }) => {
     width: "70%", // Adjust the width of the text area
   };
 
+  const buttonStyle = {
+    margin: "10px",
+    padding: "10px 15px",
+    borderRadius: "5px",
+    border: "none",
+    cursor: "pointer",
+  };
+
   return (
     <div style={backdropStyle}>
       <div style={contentStyle}>
@@ -81,13 +89,23 @@ const MovieDialog = ({ movie, onClose, onDelete }) => {
           </p>
           <button
             onClick={handleDelete}
-            style={{ backgroundColor: "#ff6347", color: "#fff" }}
+            style={{
+              ...buttonStyle,
+              backgroundColor: "#dc3545",
+              color: "#fff",
+            }} // Red color for delete
+            className="btn btn-danger"
           >
             Delete Movie
           </button>
           <button
             onClick={onClose}
-            style={{ backgroundColor: "#dcdcdc", color: "#1e1e1e" }}
+            style={{
+              ...buttonStyle,
+              backgroundColor: "#6c757d",
+              color: "#fff",
+            }} // Grey color for close
+            className="btn btn-secondary"
           >
             Close
           </button>
