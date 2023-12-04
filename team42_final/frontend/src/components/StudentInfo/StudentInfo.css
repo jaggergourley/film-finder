@@ -1,20 +1,20 @@
 /* src/components/StudentInfo/StudentInfo.css */
 
-/* Style for the outermost container, ensuring it takes full viewport height */
+/* Styling for the main container */
 .parent-container {
-  display: flex; /* Flex layout for centering */
-  align-items: center; /* Vertically center the content */
-  min-height: 100vh; /* Ensure it covers the full viewport height */
+  display: flex; /* Flex layout for alignment */
+  align-items: center; /* Centers content vertically */
+  min-height: 100vh; /* Full height of the viewport */
 }
 
-/* Style for the main content container */
+/* Styling for content container */
 .container {
-  background-color: #1e1e1e; /* Dark background for better readability */
-  color: #dcdcdc; /* Light text color for contrast */
-  text-align: center; /* Center aligns all text */
-  padding: 20px; /* Padding for spacing inside the container */
-  border: 1px solid #ccc; /* Border for visual separation */
-  border-radius: 5px; /* Rounded corners */
-  max-width: 400px; /* Max width to ensure content is not too stretched */
-  margin: 0 auto; /* Center the container horizontally */
+  background-color: #1e1e1e; /* Dark background for readability */
+  color: #dcdcdc; /* Light text on dark background */
+  text-align: center; /* Centers text horizontally */
+  padding: 20px; /* Padding around content */
+  border: 1px solid #ccc; /* Border for definition */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  max-width: 400px; /* Limits maximum width */
+  margin: 0 auto; /* Centers container on page */
 }

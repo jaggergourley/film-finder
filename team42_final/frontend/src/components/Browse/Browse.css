@@ -1,21 +1,21 @@
 /* src/components/Browse/Browse.css */
 
-/* Style for the dropdown menu in the Browse component */
+/* Dropdown menu styling */
 .dropdown {
-  padding: 10px 15px; /* Padding for visual comfort */
-  background-color: #2e2e2e; /* Dark background for contrast */
-  color: #dcdcdc; /* Light text color for readability */
-  border-radius: 5px; /* Rounded corners */
-  border: 1px solid #444; /* Subtle border for definition */
-  outline: none; /* Removes default focus outline */
-  margin: 10px 0; /* Spacing above and below the dropdown */
-  width: 200px; /* Fixed width for consistent appearance */
+  padding: 10px 15px; /* Adequate padding for user comfort */
+  background-color: #2e2e2e; /* Dark theme background */
+  color: #dcdcdc; /* Contrast text color for readability */
+  border-radius: 5px; /* Smoothed corners for modern look */
+  border: 1px solid #444; /* Subtle border for visual definition */
+  outline: none; /* Disabling default focus outline for custom styling */
+  margin: 10px 0; /* Vertical margin for spacing */
+  width: 200px; /* Standard width for uniformity */
 }
 
-/* Grid layout for displaying movies in the Browse component */
+/* Grid layout for movie items */
 .movie-grid {
-  display: grid; /* Grid layout for movie items */
-  grid-template-columns: repeat(4, 1fr); /* Four columns of equal width */
-  gap: 20px; /* Spacing between grid items */
-  padding: 20px; /* Padding around the grid */
+  display: grid; /* Utilizing grid layout */
+  grid-template-columns: repeat(4, 1fr); /* Four equal-width columns */
+  gap: 20px; /* Consistent spacing between items */
+  padding: 20px; /* Padding for grid container */
 }

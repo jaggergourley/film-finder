@@ -1,37 +1,37 @@
 /* src/components/MovieCard/MovieCard.css */
 
-/* General styling for the movie card */
+/* General appearance of movie cards */
 .movie-card {
-  width: 18rem; /* Fixed width for uniformity */
-  background-color: #1e1e1e; /* Dark background */
-  color: #dcdcdc; /* Light text color for readability */
-  border: 1px solid #555; /* Subtle border for definition */
-  margin-bottom: 1rem; /* Bottom margin for spacing between cards */
-  cursor: pointer; /* Indicates the card is clickable */
-  border-radius: 5px; /* Rounded corners for a modern look */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-  position: relative; /* Positioning context for absolute child elements */
+  width: 18rem; /* Consistent width for all cards */
+  background-color: #1e1e1e; /* Dark background for style */
+  color: #dcdcdc; /* Light text for better visibility */
+  border: 1px solid #555; /* Defines card boundary subtly */
+  margin-bottom: 1rem; /* Space between cards */
+  cursor: pointer; /* Indicates interactivity */
+  border-radius: 5px; /* Softens corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Adds depth with shadow */
+  position: relative; /* Context for positioning child elements */
 }
 
-/* Styling for the like/unlike button inside the card */
+/* Button styles within movie cards */
 .movie-card button {
-  position: absolute; /* Absolute positioning inside the card */
-  bottom: 10px; /* Positioned at the bottom */
-  right: 10px; /* Positioned at the right */
-  color: white; /* Text color */
-  border: none; /* No border */
-  border-radius: 20px; /* Rounded edges */
-  padding: 5px 10px; /* Padding for comfort */
-  cursor: pointer; /* Indicates button is clickable */
-  outline: none; /* No outline on focus */
+  position: absolute; /* Positioned inside card */
+  bottom: 10px; /* Anchored to the bottom */
+  right: 10px; /* Anchored to the right */
+  color: white; /* Button text color */
+  border: none; /* No border for cleaner look */
+  border-radius: 20px; /* Rounded button edges */
+  padding: 5px 10px; /* Internal spacing */
+  cursor: pointer; /* Cursor to indicate action */
+  outline: none; /* Removes focus outline */
 }
 
-/* Specific styling for the 'like' button */
+/* 'Like' button specific style */
 .movie-card button.like {
-  background-color: #2ed573; /* Green background to indicate 'like' */
+  background-color: #2ed573; /* Green color for positive action */
 }
 
-/* Specific styling for the 'unlike' button */
+/* 'Unlike' button specific style */
 .movie-card button.unlike {
-  background-color: #ff4757; /* Red background to indicate 'unlike' */
+  background-color: #ff4757; /* Red color for negative action */
 }
