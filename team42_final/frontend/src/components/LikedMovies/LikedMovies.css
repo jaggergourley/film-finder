@@ -1,0 +1,9 @@
+/* src/components/LikedMovies/LikedMovies.css */
+
+/* Styling for the grid layout to display liked movies */
+.movie-grid {
+  display: grid; /* Using grid layout for movie cards */
+  grid-template-columns: repeat(4, 1fr); /* Four columns of equal width */
+  gap: 20px; /* Space between grid items */
+  padding: 20px; /* Padding inside the grid container */
+}

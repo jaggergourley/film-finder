@@ -3,27 +3,23 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { LikedMoviesProvider } from "./contexts/LikedMoviesContext";
-import Navbar from "./components/Navbar";
-import FeaturedMovies from "./components/FeaturedMovies";
-import Browse from "./components/Browse";
-import LikedMovies from "./components/LikedMovies";
-import StudentInfo from "./components/StudentInfo";
+import Navbar from "./components/Navbar/Navbar";
+import FeaturedMovies from "./components/FeaturedMovies/FeaturedMovies";
+import Browse from "./components/Browse/Browse";
+import LikedMovies from "./components/LikedMovies/LikedMovies";
+import StudentInfo from "./components/StudentInfo/StudentInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 const App = () => {
-  // Inline CSS for the dark mode background on the entire app
-  const appStyle = {
-    backgroundColor: "#1e1e1e", // Lighter dark mode background color
-    color: "#dcdcdc", // Softer gray text color
-    minHeight: "100vh", // Full viewport height
-  };
-
+  // The app component, wrapped with LikedMoviesProvider for state management
   return (
     <LikedMoviesProvider>
       <Router>
-        <div className="App" style={appStyle}>
-          <Navbar />
+        <div className="App">
+          <Navbar /> {/* Navigation bar for the app */}
           <Routes>
+            {/* Route for the home page */}
             <Route
               path="/"
               element={
@@ -34,10 +30,12 @@ const App = () => {
                       Check out some of the greatest movies of all time!
                     </p>
                   </header>
-                  <FeaturedMovies />
+                  <FeaturedMovies />{" "}
+                  {/* Component to display featured movies */}
                 </>
               }
             />
+            {/* Other routes for different sections of the app */}
             <Route path="/browse" element={<Browse />} />
             <Route path="/liked-movies" element={<LikedMovies />} />
             <Route path="/student-info" element={<StudentInfo />} />

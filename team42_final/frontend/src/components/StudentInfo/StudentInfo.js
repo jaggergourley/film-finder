@@ -1,29 +1,14 @@
-// src/components/StudentInfo.js
+// src/components/StudentInfo/StudentInfo.js
 
 import React from "react";
+import "./StudentInfo.css"; // Styling for the StudentInfo component
 
+// Functional component for displaying student information
 const StudentInfo = () => {
-  // Inline styles as JavaScript objects
-  const parentContainerStyle = {
-    display: "flex",
-    alignItems: "center",
-    minHeight: "100vh", // Full viewport height
-  };
-
-  const containerStyle = {
-    backgroundColor: "#1e1e1e", // Dark mode background color
-    color: "#dcdcdc", // Softer gray text color
-    textAlign: "center",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    maxWidth: "400px", // Keep it narrower
-    margin: "0 auto",
-  };
-
   return (
-    <div style={parentContainerStyle}>
-      <div style={containerStyle}>
+    <div className="parent-container">
+      {/* Container for the information display */}
+      <div className="container">
         <p>
           <strong>Course:</strong> SE/ComS319 Construction of User Interfaces,
           Fall 2023

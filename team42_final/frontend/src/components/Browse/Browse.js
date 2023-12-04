@@ -1,42 +1,51 @@
-// src/components/Browse.js
+// src/components/Browse/Browse.js
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import MovieCard from "./MovieCard";
-import MovieDialog from "./MovieDialog";
+import MovieCard from "../MovieCard/MovieCard";
+import MovieDialog from "../MovieDialog/MovieDialog";
+import "./Browse.css";
 
+// Browse component for displaying movie listings
 const Browse = () => {
+  // State to store the list of movies
   const [movies, setMovies] = useState([]);
-  // Initialize sortCriteria as an object with field and order
+
+  // State for sorting criteria, with default values
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
 
+  // Fetch movies whenever sortCriteria changes
   useEffect(() => {
     fetchSortedMovies();
   }, [sortCriteria]);
 
+  // Function to fetch movies with sorting parameters
   const fetchSortedMovies = async () => {
     try {
-      // Update the request to include sorting field and order
+      // Send a GET request with sort parameters
       const response = await axios.get("http://localhost:5000/movies", {
         params: { sortBy: sortCriteria.field, order: sortCriteria.order },
       });
-      setMovies(response.data);
+      setMovies(response.data); // Update state with fetched movies
     } catch (error) {
       console.error("Error fetching movies", error);
     }
   };
 
+  // State for currently selected movie
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  // Function to open the dialog with movie details
   const openDialog = (movie) => {
     setSelectedMovie(movie);
   };
 
+  // Function to close the movie details dialog
   const closeDialog = () => {
     setSelectedMovie(null);
   };
 
-  // Function to handle sorting criteria change
+  // Function to update sorting criteria based on user selection
   const handleSortChange = (e) => {
     const value = e.target.value;
     setSortCriteria({
@@ -45,40 +54,24 @@ const Browse = () => {
     });
   };
 
+  // Function to handle movie deletion
   const handleDelete = async (movieId) => {
     try {
       await axios.delete(`http://localhost:5000/movies/${movieId}`);
-      // Remove deleted movie from state
+      // Update the movies state by filtering out the deleted movie
       setMovies(movies.filter((movie) => movie._id !== movieId));
     } catch (error) {
       console.error("Error deleting movie", error);
     }
   };
 
-  // CSS for the movie grid
-  const movieGridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "20px",
-    padding: "20px",
-  };
-
-  // Inline CSS for the dropdown menu styling
-  const dropdownStyle = {
-    padding: "10px 15px",
-    backgroundColor: "#2e2e2e", // Dark background color
-    color: "#dcdcdc", // Light text color
-    borderRadius: "5px",
-    border: "1px solid #444", // Subtle border color
-    outline: "none",
-    margin: "10px 0",
-    width: "200px", // Set a fixed width
-  };
-
+  // Render the Browse component
   return (
     <div>
+      {/* Dropdown for sorting movies */}
       <div>
-        <select style={dropdownStyle} onChange={handleSortChange}>
+        <select className="dropdown" onChange={handleSortChange}>
+          {/* Sorting options */}
           <option value="">Sort By</option>
           <option value="title-asc">Title (A-Z)</option>
           <option value="title-desc">Title (Z-A)</option>
@@ -90,15 +83,18 @@ const Browse = () => {
           <option value="rating-desc">Rating (Highest First)</option>
         </select>
       </div>
-      <div style={movieGridStyle}>
+      {/* Movie grid display */}
+      <div className="movie-grid">
+        {/* Map through movies and render MovieCards */}
         {movies.map((movie) => (
           <MovieCard key={movie._id} movie={movie} onClick={openDialog} />
         ))}
+        {/* Conditionally render MovieDialog if a movie is selected */}
         {selectedMovie && (
           <MovieDialog
             movie={selectedMovie}
             onClose={closeDialog}
-            onDelete={handleDelete} // Pass handleDelete as onDelete
+            onDelete={handleDelete} // Pass handleDelete to MovieDialog
           />
         )}
       </div>
