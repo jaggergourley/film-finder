@@ -14,7 +14,7 @@ const StudentInfo = () => {
           Fall 2023
         </p>
         <p>
-          <strong>Date:</strong> December 3, 2023
+          <strong>Date:</strong> December 13, 2023
         </p>
         <p>
           <strong>Professor:</strong> Dr. Abraham N. Aldaco Gastelum <br />

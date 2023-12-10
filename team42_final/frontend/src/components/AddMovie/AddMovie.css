@@ -1,0 +1,60 @@
+/* // src/components/AddMovie/AddMovie.css */
+
+.add-movie-container {
+    max-width: 600px; /* Adjust width as needed */
+    margin: auto; /* Center the form on the page */
+    padding: 20px;
+    background-color: #2e2e2e;
+    color: #dcdcdc;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling for form labels */
+.add-movie-container label {
+    display: block; /* Ensure labels are on their own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Styling for form fields */
+.add-movie-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+}
+
+/* Focus state for input fields */
+.add-movie-container input:focus {
+    outline: 2px solid #4b7bec;
+}
+
+/* Styling for buttons */
+.add-movie-container button {
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: block; /* Center the button */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 'Add Movie' button specific styling */
+.add-movie-container button[type="submit"] {
+    background-color: #28a745; /* Green color for confirmatory actions */
+    color: #fff;
+}
+
+/* Feedback message styling */
+.add-movie-container p {
+    margin-top: 15px;
+    color: #ffcc00; /* Yellow for visibility */
+    text-align: center;
+}

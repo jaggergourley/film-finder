@@ -1,0 +1,44 @@
+/* src/components/Search/Search.css */
+
+.search-form {
+    padding: 20px; /* Padding for the form container */
+    background-color: #2e2e2e; /* Dark theme background */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    margin-bottom: 20px; /* Space below the form */
+  }
+  
+  .search-input, .search-select {
+    padding: 10px; /* Comfortable padding for input */
+    margin-right: 10px; /* Spacing between fields */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #444; /* Subtle border */
+    background-color: #1e1e1e; /* Dark background for inputs */
+    color: #dcdcdc; /* Light text color */
+  }
+
+    /* Focus state for input and select */
+  .search-input:focus, .search-select:focus {
+    outline: 2px solid #4b7bec; /* Blue outline to indicate focus */
+  }
+
+  .search-button {
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded edges */
+    background-color: #4b7bec; /* Stylish blue for button */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+
+  /* Hover state for buttons */
+.search-button:hover {
+    background-color: #3a6ed8; /* Slightly darker blue on hover */
+  }
+   
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  

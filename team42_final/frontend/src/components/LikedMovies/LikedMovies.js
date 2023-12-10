@@ -1,57 +1,63 @@
 // src/components/LikedMovies/LikedMovies.js
 
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import { LikedMoviesContext } from "../../contexts/LikedMoviesContext";
 import MovieCard from "../MovieCard/MovieCard";
 import MovieDialog from "../MovieDialog/MovieDialog";
 import "./LikedMovies.css";
 
-// Component to display movies that a user has liked
 const LikedMovies = () => {
-  // Accessing likedMovies and unlikeMovie function from the context
-  const { likedMovies, unlikeMovie } = useContext(LikedMoviesContext);
-  // State to keep track of which movie is currently selected for detailed view
+  const { likedMovies, unlikeMovie, updateLikedMovie } =
+    useContext(LikedMoviesContext); // Assuming updateLikedMovie is added to the context
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Handles the event when a movie card is clicked
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
   };
 
-  // Closes the movie dialog by resetting the selected movie to null
   const handleClose = () => {
     setSelectedMovie(null);
   };
 
-  // Handles the deletion of a movie from the liked list and closes the dialog
-  const handleDelete = (movieId) => {
-    unlikeMovie(movieId); // Removes the movie from the liked movies list
-    handleClose(); // Closes the dialog after deletion
+  const handleDelete = async (movieId) => {
+    try {
+      // Send DELETE request to the server
+      await axios.delete(`http://localhost:5000/movies/${movieId}`);
+      // Remove the movie from the liked movies list
+      unlikeMovie(movieId);
+    } catch (error) {
+      console.error("Error deleting movie from the server", error);
+    }
+    handleClose();
+  };
+
+  const handleMovieUpdate = (updatedMovie) => {
+    updateLikedMovie(updatedMovie); // Update the movie in the context
   };
 
   return (
     <div>
-      <h2>Liked Movies</h2> {/* Heading for the Liked Movies section */}
+      <h2>Liked Movies</h2>
       <div className="movie-grid">
-        {/* Conditionally render movies or a message if no movies are liked */}
         {likedMovies.length > 0 ? (
           likedMovies.map((movie) => (
             <MovieCard
               key={movie._id}
               movie={movie}
-              onClick={() => handleMovieClick(movie)} // Assign onClick event to each movie card
+              onClick={() => handleMovieClick(movie)}
             />
           ))
         ) : (
-          <p>No liked movies yet.</p> // Message displayed when there are no liked movies
+          <p>No liked movies yet.</p>
         )}
       </div>
-      {/* Render MovieDialog if a movie is selected */}
       {selectedMovie && (
         <MovieDialog
           movie={selectedMovie}
-          onClose={handleClose} // Function to close the dialog
-          onDelete={handleDelete} // Function to handle movie deletion
+          onClose={handleClose}
+          onDelete={handleDelete}
+          onUpdate={handleMovieUpdate}
         />
       )}
     </div>

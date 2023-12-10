@@ -6,7 +6,9 @@ import { LikedMoviesProvider } from "./contexts/LikedMoviesContext";
 import Navbar from "./components/Navbar/Navbar";
 import FeaturedMovies from "./components/FeaturedMovies/FeaturedMovies";
 import Browse from "./components/Browse/Browse";
+import Search from "./components/Search/Search";
 import LikedMovies from "./components/LikedMovies/LikedMovies";
+import AddMovie from "./components/AddMovie/AddMovie";
 import StudentInfo from "./components/StudentInfo/StudentInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -37,7 +39,9 @@ const App = () => {
             />
             {/* Other routes for different sections of the app */}
             <Route path="/browse" element={<Browse />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/liked-movies" element={<LikedMovies />} />
+            <Route path="/add-movie" element={<AddMovie />} />
             <Route path="/student-info" element={<StudentInfo />} />
           </Routes>
         </div>

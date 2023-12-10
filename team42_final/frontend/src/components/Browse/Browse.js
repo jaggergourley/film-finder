@@ -65,6 +65,16 @@ const Browse = () => {
     }
   };
 
+  // Function to handle movie update
+  const handleMovieUpdate = (updatedMovie) => {
+    // Update the movies array with the updated movie data
+    setMovies(
+      movies.map((movie) =>
+        movie._id === updatedMovie._id ? updatedMovie : movie
+      )
+    );
+  };
+
   // Render the Browse component
   return (
     <div>
@@ -94,7 +104,8 @@ const Browse = () => {
           <MovieDialog
             movie={selectedMovie}
             onClose={closeDialog}
-            onDelete={handleDelete} // Pass handleDelete to MovieDialog
+            onDelete={handleDelete}
+            onUpdate={handleMovieUpdate} // Pass the update handler to MovieDialog
           />
         )}
       </div>
@@ -103,26 +114,3 @@ const Browse = () => {
 };
 
 export default Browse;
-
-// const genres = [
-//   "Action",
-//   "Adventure",
-//   "Animation",
-//   "Biography",
-//   "Crime",
-//   "Comedy",
-//   "Drama",
-//   "Family",
-//   "Fantasy",
-//   "Film-Noir",
-//   "History",
-//   "Horror",
-//   "Music",
-//   "Musical",
-//   "Mystery",
-//   "Romance",
-//   "Sci-Fi",
-//   "Thriller",
-//   "Western",
-//   "War",
-// ];

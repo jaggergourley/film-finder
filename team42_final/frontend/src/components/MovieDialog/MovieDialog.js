@@ -1,11 +1,13 @@
 // src/components/MovieDialog/MovieDialog.js
 
-// Import React and the component's CSS file
-import React from "react";
+import React, { useState } from "react";
+import EditMovieDialog from "../EditMovieDialog/EditMovieDialog";
 import "./MovieDialog.css";
 
-// MovieDialog component for displaying detailed movie information in a dialog
-const MovieDialog = ({ movie, onClose, onDelete }) => {
+const MovieDialog = ({ movie, onClose, onDelete, onUpdate }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentMovie, setCurrentMovie] = useState(movie);
+
   // Return null if no movie is provided
   if (!movie) return null;
 
@@ -13,6 +15,22 @@ const MovieDialog = ({ movie, onClose, onDelete }) => {
   const handleDelete = () => {
     onDelete(movie._id);
     onClose();
+  };
+
+  // Function to open the edit dialog
+  const openEditDialog = () => {
+    setIsEditing(true);
+  };
+
+  // Function to close the edit dialog
+  const closeEditDialog = () => {
+    setIsEditing(false);
+  };
+
+  // Function to handle movie update
+  const handleMovieUpdated = (updatedMovie) => {
+    setCurrentMovie(updatedMovie); // Update the current movie
+    setIsEditing(false); // Close edit dialog
   };
 
   // Convert duration from minutes to hour:minute format
@@ -58,6 +76,10 @@ const MovieDialog = ({ movie, onClose, onDelete }) => {
           <p>
             <strong>Rating:</strong> {movie.rating}/10
           </p>
+          {/* Add an Edit button */}
+          <button onClick={openEditDialog} className="movie-dialog-button edit">
+            Edit Movie
+          </button>
           {/* Buttons for delete and close actions */}
           <button onClick={handleDelete} className="movie-dialog-button delete">
             Delete Movie
@@ -65,6 +87,18 @@ const MovieDialog = ({ movie, onClose, onDelete }) => {
           <button onClick={onClose} className="movie-dialog-button close">
             Close
           </button>
+          {/* Render EditMovieDialog when editing is true */}
+          {isEditing && (
+            <EditMovieDialog
+              movie={currentMovie}
+              onClose={closeEditDialog}
+              onUpdated={(updatedMovie) => {
+                handleMovieUpdated(updatedMovie);
+                onUpdate(updatedMovie); // Propagate the update to the parent component
+              }}
+              onSuccessfulUpdate={onClose} // Close the MovieDialog on successful update
+            />
+          )}
         </div>
       </div>
     </div>

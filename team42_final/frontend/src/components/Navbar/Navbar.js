@@ -26,8 +26,18 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link" to="/search">
+              Search
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to="/liked-movies">
               Liked Movies
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/add-movie">
+              Add Movie
             </Link>
           </li>
           <li className="nav-item">
