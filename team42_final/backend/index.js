@@ -17,6 +17,26 @@ app.get("/movies", async (req, res) => {
   try {
     let query = Movie.find(); // Start with a query to find all movies
 
+    // Filtering based on query parameters
+    if (req.query.title) {
+      query = query.where("title").equals(new RegExp(req.query.title, "i"));
+    }
+    if (req.query.director) {
+      query = query
+        .where("director")
+        .equals(new RegExp(req.query.director, "i"));
+    }
+    // Filtering for actors
+    if (req.query.actor) {
+      // Create a regular expression to search for the actor's name in the comma-separated list
+      const actorRegex = new RegExp(req.query.actor.split(" ").join("|"), "i");
+      query = query.where("actors").regex(actorRegex);
+    }
+    if (req.query.genre) {
+      const genreRegex = new RegExp(req.query.genre, "i"); // Case-insensitive regex
+      query = query.where("genre").regex(genreRegex);
+    }
+
     // Check if sorting parameters are provided in the request
     if (req.query.sortBy && req.query.order) {
       const sortField = req.query.sortBy;
