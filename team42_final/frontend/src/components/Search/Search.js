@@ -6,6 +6,7 @@ import MovieCard from "../MovieCard/MovieCard";
 import MovieDialog from "../MovieDialog/MovieDialog";
 import "./Search.css";
 
+// List of genres for the genre dropdown
 const genres = [
   "Action",
   "Adventure",
@@ -30,6 +31,7 @@ const genres = [
 ];
 
 const Search = () => {
+  // State variables for form inputs and search results
   const [title, setTitle] = useState("");
   const [director, setDirector] = useState("");
   const [actor, setActor] = useState("");
@@ -37,9 +39,11 @@ const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  // Function to handle the search form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Fetching movies based on search criteria
       const response = await axios.get("http://localhost:5000/movies", {
         params: { title, director, actor, genre },
       });
@@ -49,14 +53,17 @@ const Search = () => {
     }
   };
 
+  // Function to handle opening the movie dialog
   const openDialog = (movie) => {
     setSelectedMovie(movie);
   };
 
+  // Function to handle closing the movie dialog
   const closeDialog = () => {
     setSelectedMovie(null);
   };
 
+  // Function to handle the deletion of a movie
   const handleDelete = async (movieId) => {
     try {
       await axios.delete(`http://localhost:5000/movies/${movieId}`);
@@ -66,6 +73,7 @@ const Search = () => {
     }
   };
 
+  // Function to update the state when a movie is updated
   const handleMovieUpdate = (updatedMovie) => {
     setSearchResults(
       searchResults.map((movie) =>
@@ -135,6 +143,7 @@ const Search = () => {
               "No matching search results or no search made yet."}
           </p>
         )}
+        {/* MovieDialog for selected movie details */}
         {selectedMovie && (
           <MovieDialog
             movie={selectedMovie}

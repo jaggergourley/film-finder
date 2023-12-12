@@ -5,23 +5,29 @@ import axios from "axios";
 import "./EditMovieDialog.css";
 
 const EditMovieDialog = ({ movie, onClose, onUpdated, onSuccessfulUpdate }) => {
+  // State to manage the edited movie data and feedback message
   const [editedMovie, setEditedMovie] = useState({ ...movie });
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
+  // Function to update the edited movie data as it changes
   const handleChange = (e) => {
     setEditedMovie({ ...editedMovie, [e.target.name]: e.target.value });
   };
 
+  // Function to handle the form submission for updating the movie
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Send a PUT request to update the movie
       const response = await axios.put(
         `http://localhost:5000/movies/${movie._id}`,
         editedMovie
       );
       setFeedbackMessage("Movie updated successfully!");
+      // Trigger the onUpdated callback with the updated movie data
       onUpdated(response.data);
-      onSuccessfulUpdate(); // Close the MovieDialog
+      // Close the MovieDialog after successful update
+      onSuccessfulUpdate();
     } catch (error) {
       console.error("Error updating movie", error);
       setFeedbackMessage("Failed to update movie.");
@@ -123,11 +129,13 @@ const EditMovieDialog = ({ movie, onClose, onUpdated, onSuccessfulUpdate }) => {
             placeholder="Poster URL"
           />
 
+          {/* Buttons for updating and canceling */}
           <button type="submit">Update Movie</button>
           <button type="button" onClick={onClose}>
             Cancel
           </button>
         </form>
+        {/* Display feedback message after form submission */}
         {feedbackMessage && <p>{feedbackMessage}</p>}
       </div>
     </div>

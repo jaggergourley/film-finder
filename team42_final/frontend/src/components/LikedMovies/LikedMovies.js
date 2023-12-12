@@ -8,18 +8,22 @@ import MovieDialog from "../MovieDialog/MovieDialog";
 import "./LikedMovies.css";
 
 const LikedMovies = () => {
+  // Use the LikedMoviesContext to access likedMovies state and update functions
   const { likedMovies, unlikeMovie, updateLikedMovie } =
-    useContext(LikedMoviesContext); // Assuming updateLikedMovie is added to the context
+    useContext(LikedMoviesContext);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  // Handle movie click to open MovieDialog
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
   };
 
+  // Close MovieDialog
   const handleClose = () => {
     setSelectedMovie(null);
   };
 
+  // Handle movie deletion
   const handleDelete = async (movieId) => {
     try {
       // Send DELETE request to the server
@@ -32,6 +36,7 @@ const LikedMovies = () => {
     handleClose();
   };
 
+  // Handle movie update
   const handleMovieUpdate = (updatedMovie) => {
     updateLikedMovie(updatedMovie); // Update the movie in the context
   };

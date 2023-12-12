@@ -1,26 +1,34 @@
-// backend/node_modules/index.js
+// backend/index.js
 
+// Import necessary libraries and modules
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Movie = require("./models/Movie"); // Import the Movie model for database operations
 
+// Create an Express application
 const app = express();
-app.use(cors()); // Enable Cross-Origin Resource Sharing for all routes
-app.use(express.json()); // Parse JSON bodies in requests
+
+// Enable Cross-Origin Resource Sharing for all routes
+app.use(cors());
+
+// Parse JSON bodies in requests
+app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/team42db", {});
 
-// Endpoint to retrieve all movies with optional sorting
+// Define an endpoint to retrieve all movies with optional sorting
 app.get("/movies", async (req, res) => {
   try {
     let query = Movie.find(); // Start with a query to find all movies
 
     // Filtering based on query parameters
+    // Filtering for title
     if (req.query.title) {
       query = query.where("title").equals(new RegExp(req.query.title, "i"));
     }
+    // Filtering for director
     if (req.query.director) {
       query = query
         .where("director")
@@ -32,6 +40,7 @@ app.get("/movies", async (req, res) => {
       const actorRegex = new RegExp(req.query.actor.split(" ").join("|"), "i");
       query = query.where("actors").regex(actorRegex);
     }
+    // Filtering for genre
     if (req.query.genre) {
       const genreRegex = new RegExp(req.query.genre, "i"); // Case-insensitive regex
       query = query.where("genre").regex(genreRegex);
@@ -51,7 +60,7 @@ app.get("/movies", async (req, res) => {
   }
 });
 
-// Endpoint to retrieve a single movie by its ID
+// Define an endpoint to retrieve a single movie by its ID
 app.get("/movies/:id", async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id); // Find the movie by ID
@@ -64,9 +73,9 @@ app.get("/movies/:id", async (req, res) => {
   }
 });
 
-// Endpoint to create a new movie
+// Define an endpoint to create a new movie
 app.post("/movies", async (req, res) => {
-  const movie = new Movie(req.body); // Create a new movie from request body
+  const movie = new Movie(req.body); // Create a new movie from the request body
   try {
     const savedMovie = await movie.save(); // Save the new movie to the database
     res.status(201).json(savedMovie); // Respond with the saved movie
@@ -75,7 +84,7 @@ app.post("/movies", async (req, res) => {
   }
 });
 
-// Endpoint to update an existing movie by ID
+// Define an endpoint to update an existing movie by ID
 app.put("/movies/:id", async (req, res) => {
   try {
     const updatedMovie = await Movie.findByIdAndUpdate(
@@ -92,7 +101,7 @@ app.put("/movies/:id", async (req, res) => {
   }
 });
 
-// Endpoint to delete a movie by ID
+// Define an endpoint to delete a movie by ID
 app.delete("/movies/:id", async (req, res) => {
   try {
     const deletedMovie = await Movie.findByIdAndDelete(req.params.id);
@@ -105,6 +114,6 @@ app.delete("/movies/:id", async (req, res) => {
   }
 });
 
-// Start the server
+// Start the server on port 5000
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

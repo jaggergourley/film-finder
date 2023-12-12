@@ -14,6 +14,7 @@ const FeaturedMovies = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
+        // Send a GET request to fetch all movies from the server
         const response = await axios.get("http://localhost:5000/movies");
         // Select a random subset of movies to feature
         const randomMovies = getRandomMovies(response.data, 5);

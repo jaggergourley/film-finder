@@ -1,7 +1,7 @@
 // src/components/StudentInfo/StudentInfo.js
 
 import React from "react";
-import "./StudentInfo.css"; // Styling for the StudentInfo component
+import "./StudentInfo.css";
 
 // Functional component for displaying student information
 const StudentInfo = () => {

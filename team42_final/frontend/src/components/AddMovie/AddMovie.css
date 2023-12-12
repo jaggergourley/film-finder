@@ -1,60 +1,52 @@
-/* // src/components/AddMovie/AddMovie.css */
+/* src/components/AddMovie/AddMovie.css */
 
+/* Container for the Add Movie form */
 .add-movie-container {
-    max-width: 600px; /* Adjust width as needed */
-    margin: auto; /* Center the form on the page */
-    padding: 20px;
-    background-color: #2e2e2e;
-    color: #dcdcdc;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1000px; /* Optimal width for single-column layout */
+    margin: auto; /* Centering the form horizontally */
+    padding: 20px; /* Internal padding for spacing */
+    background-color: #1e1e1e; /* Consistent with main app background */
+    color: #dcdcdc; /* Light text for contrast against dark background */
 }
 
-/* Styling for form labels */
+/* Style for form labels */
 .add-movie-container label {
-    display: block; /* Ensure labels are on their own line */
-    margin-bottom: 5px;
-    font-weight: bold;
+    display: block; /* Each label on its own line */
+    margin-bottom: 5px; /* Space between label and corresponding input */
+    font-weight: bold; /* Bold font for label emphasis */
 }
 
-/* Styling for form fields */
+/* Style for input fields within the form */
 .add-movie-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    background-color: #1e1e1e;
-    color: #dcdcdc;
+    width: 100%; /* Full width to utilize column space */
+    padding: 10px; /* Comfortable padding for user interaction */
+    margin-bottom: 20px; /* Spacing below each input field */
+    border-radius: 5px; /* Rounded corners for a softer aesthetic */
+    border: 1px solid #555; /* Subtle border for definition */
+    background-color: #2e2e2e; /* Slightly lighter than container for contrast */
+    color: #dcdcdc; /* Text color for readability */
 }
 
-/* Focus state for input fields */
+/* Highlight focus state for better user interaction */
 .add-movie-container input:focus {
-    outline: 2px solid #4b7bec;
+    outline: 2px solid #4b7bec; /* Blue outline to indicate active field */
 }
 
-/* Styling for buttons */
+/* Button styling for form submission */
 .add-movie-container button {
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    display: block; /* Center the button */
-    margin-left: auto;
-    margin-right: auto;
+    padding: 10px 15px; /* Adequate padding for ease of use */
+    border-radius: 5px; /* Smooth corners for a modern look */
+    border: none; /* Removing default border for cleaner style */
+    cursor: pointer; /* Cursor change to indicate clickable area */
+    display: block; /* Center button in the form */
+    margin: 10px auto; /* Margin for positioning and spacing */
+    background-color: #28a745; /* Green color to indicate action */
+    color: #fff; /* High contrast text for legibility */
 }
 
-/* 'Add Movie' button specific styling */
-.add-movie-container button[type="submit"] {
-    background-color: #28a745; /* Green color for confirmatory actions */
-    color: #fff;
-}
-
-/* Feedback message styling */
+/* Feedback message styling for user notification */
 .add-movie-container p {
-    margin-top: 15px;
-    color: #ffcc00; /* Yellow for visibility */
-    text-align: center;
+    margin-top: 15px; /* Space above message for separation */
+    color: #ffcc00; /* Bright color for visibility */
+    text-align: center; /* Center alignment for focus */
 }

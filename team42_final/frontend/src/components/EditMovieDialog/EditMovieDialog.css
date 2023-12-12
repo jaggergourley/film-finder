@@ -1,74 +1,75 @@
-/* src/components/EditMovieDialog/EditMovieDialog.js */
+/* src/components/EditMovieDialog/EditMovieDialog.css */
 
 /* Backdrop styling for the edit movie dialog */
 .edit-movie-dialog-backdrop {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  /* Content area styling within the dialog */
-  .edit-movie-dialog-content {
-    background-color: #2e2e2e;
-    color: #dcdcdc;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    width: 40%; /* Adjusted for form context */
-    max-height: 90vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column; /* Column layout for form fields */
-    align-items: center;
-  }
-  
-  /* Styling for form fields */
-  .edit-movie-dialog-content input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    background-color: #1e1e1e;
-    color: #dcdcdc;
-  }
-  
-  /* Focus state for input fields */
-  .edit-movie-dialog-content input:focus {
-    outline: 2px solid #4b7bec;
-  }
-  
-  /* Styling for buttons */
-  .edit-movie-dialog-content button {
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  /* 'Update' button specific styling */
-  .edit-movie-dialog-content button[type="submit"] {
-    background-color: #28a745; /* Green color for confirmatory actions */
-    color: #fff;
-  }
-  
-  /* 'Cancel' button specific styling */
-  .edit-movie-dialog-content button[type="button"] {
-    background-color: #6c757d; /* Grey for neutral action */
-    color: #fff;
-  }
-  
-  /* Feedback message styling */
-  .edit-movie-dialog-content p {
-    margin-top: 15px;
-    color: #ffcc00; /* Yellow for visibility */
-    text-align: center;
-  }
-  
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black background */
+  display: flex; /* Flex container to center content vertically and horizontally */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* High z-index to ensure it's above other elements */
+}
+
+/* Content area styling within the dialog */
+.edit-movie-dialog-content {
+  background-color: #2e2e2e; /* Dark gray background */
+  color: #dcdcdc; /* Light gray text */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+  width: 40%; /* Adjusted for form context */
+  max-height: 90vh; /* Maximum height while maintaining viewport visibility */
+  overflow-y: auto; /* Enable vertical scrolling for content overflow */
+  display: flex; /* Flex container for column layout of form fields */
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+/* Styling for form fields */
+.edit-movie-dialog-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #555; /* Dark gray border */
+  background-color: #1e1e1e; /* Even darker background */
+  color: #dcdcdc; /* Light gray text */
+}
+
+/* Focus state for input fields */
+.edit-movie-dialog-content input:focus {
+  outline: 2px solid #4b7bec; /* Light blue outline on focus */
+}
+
+/* Styling for buttons */
+.edit-movie-dialog-content button {
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 'Update' button specific styling */
+.edit-movie-dialog-content button[type="submit"] {
+  background-color: #28a745; /* Green color for confirmatory actions */
+  color: #fff; /* White text on green background */
+}
+
+/* 'Cancel' button specific styling */
+.edit-movie-dialog-content button[type="button"] {
+  background-color: #6c757d; /* Grey for neutral action */
+  color: #fff; /* White text on grey background */
+}
+
+/* Feedback message styling */
+.edit-movie-dialog-content p {
+  margin-top: 15px;
+  color: #ffcc00; /* Yellow for visibility */
+  text-align: center;
+}

@@ -1,7 +1,20 @@
 /* src/App.css */
 
+/* Base styling for the entire application */
 .App {
-  background-color: #1e1e1e;
-  color: #dcdcdc;
-  min-height: 100vh;
+  background-color: #1e1e1e; /* Dark background color for the entire app */
+  color: #dcdcdc; /* Light text color for contrast */
+  min-height: 100vh; /* Minimum viewport height to cover the entire screen */
+}
+
+/* Styling for the jumbotron header */
+.jumbotron {
+  padding: 2rem 2rem; /* Top and bottom padding with added left-right padding */
+  background-color: inherit; /* Inherits parent background color */
+  text-align: center; /* Center aligns the text */
+}
+
+.jumbotron .display-4, .jumbotron .lead {
+  padding-left: 1rem; /* Adds padding to the left of the header and paragraph */
+  text-align: left; /* Aligns text to the left */
 }

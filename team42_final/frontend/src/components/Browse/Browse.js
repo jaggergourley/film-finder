@@ -105,7 +105,7 @@ const Browse = () => {
             movie={selectedMovie}
             onClose={closeDialog}
             onDelete={handleDelete}
-            onUpdate={handleMovieUpdate} // Pass the update handler to MovieDialog
+            onUpdate={handleMovieUpdate}
           />
         )}
       </div>

@@ -15,6 +15,7 @@ import "./App.css";
 
 const App = () => {
   // The app component, wrapped with LikedMoviesProvider for state management
+
   return (
     <LikedMoviesProvider>
       <Router>
@@ -37,6 +38,7 @@ const App = () => {
                 </>
               }
             />
+
             {/* Other routes for different sections of the app */}
             <Route path="/browse" element={<Browse />} />
             <Route path="/search" element={<Search />} />

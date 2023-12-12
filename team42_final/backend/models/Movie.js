@@ -8,12 +8,12 @@ const movieSchema = new mongoose.Schema({
   title: String,
   year: Number,
   genre: String,
-  duration: Number,
+  duration: Number, // Duration in minutes
   director: String,
-  actors: String,
+  actors: String, // Comma-separated list of actors
   description: String,
   rating: Number, // IMDb rating of the movie
-  poster: String, // URL to the movie's poster image
+  poster: String, // URL to poster image
 });
 
 // Create a model from the schema

@@ -5,6 +5,7 @@ import axios from "axios";
 import "./AddMovie.css";
 
 const AddMovie = () => {
+  // State to manage form inputs and feedback message
   const [newMovie, setNewMovie] = useState({
     title: "",
     description: "",
@@ -18,16 +19,19 @@ const AddMovie = () => {
   });
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
+  // Function to update the form inputs as they change
   const handleChange = (e) => {
     setNewMovie({ ...newMovie, [e.target.name]: e.target.value });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Make a POST request to add a new movie
       await axios.post(`http://localhost:5000/movies`, newMovie);
       setFeedbackMessage("Movie added successfully!");
-      // Reset form after submission
+      // Reset the form after submission
       setNewMovie({
         title: "",
         description: "",
@@ -140,8 +144,11 @@ const AddMovie = () => {
           placeholder="Poster URL"
         />
 
+        {/* Button to submit the form */}
         <button type="submit">Add Movie</button>
       </form>
+
+      {/* Display feedback message after form submission */}
       {feedbackMessage && <p>{feedbackMessage}</p>}
     </div>
   );

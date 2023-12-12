@@ -76,11 +76,10 @@ const MovieDialog = ({ movie, onClose, onDelete, onUpdate }) => {
           <p>
             <strong>Rating:</strong> {movie.rating}/10
           </p>
-          {/* Add an Edit button */}
+          {/* Buttons for edit, delete, close actions */}
           <button onClick={openEditDialog} className="movie-dialog-button edit">
             Edit Movie
           </button>
-          {/* Buttons for delete and close actions */}
           <button onClick={handleDelete} className="movie-dialog-button delete">
             Delete Movie
           </button>
