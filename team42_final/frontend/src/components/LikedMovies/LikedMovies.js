@@ -1,4 +1,8 @@
 // src/components/LikedMovies/LikedMovies.js
+/*
+LikedMovies component allows users to view and manage their favorite movies.
+It interacts with the LikedMoviesContext to access and modify the user's liked movies. 
+*/
 
 import React, { useContext, useState } from "react";
 import axios from "axios";
@@ -13,17 +17,17 @@ const LikedMovies = () => {
     useContext(LikedMoviesContext);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Handle movie click to open MovieDialog
+  // Opens a dialog with movie details when a movie is clicked.
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
   };
 
-  // Close MovieDialog
+  // Handles the closing of the MovieDialog, ensuring the UI remains responsive.
   const handleClose = () => {
     setSelectedMovie(null);
   };
 
-  // Handle movie deletion
+  // Manages the deletion of a liked movie, both in the context and on the server.
   const handleDelete = async (movieId) => {
     try {
       // Send DELETE request to the server
@@ -36,11 +40,12 @@ const LikedMovies = () => {
     handleClose();
   };
 
-  // Handle movie update
+  // Updates the liked movie list when a movie's details are changed.
   const handleMovieUpdate = (updatedMovie) => {
     updateLikedMovie(updatedMovie); // Update the movie in the context
   };
 
+  // Renders the component, displaying the list of liked movies.
   return (
     <div>
       <h2>Liked Movies</h2>

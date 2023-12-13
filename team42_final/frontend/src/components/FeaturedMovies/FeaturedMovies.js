@@ -1,4 +1,8 @@
 // src/components/FeaturedMovies/FeaturedMovies.js
+/*
+This component displays a selection of movies prominently on the homepage.
+It randomly selects a subset of movies to feature, offering users a varied experience each time they visit. 
+*/
 
 // Import necessary dependencies
 import React, { useState, useEffect } from "react";
@@ -10,7 +14,7 @@ const FeaturedMovies = () => {
   // State to store an array of featured movies
   const [featuredMovies, setFeaturedMovies] = useState([]);
 
-  // Fetch and set featured movies on component mount
+  // Fetches movies from the server and sets a random subset as featured.
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -26,13 +30,13 @@ const FeaturedMovies = () => {
     fetchMovies();
   }, []);
 
-  // Function to randomly select a subset of movies
+  // Function to randomly pick a set number of movies from the fetched list.
   const getRandomMovies = (movies, count) => {
     // Randomly shuffles the array and picks the first 'count' elements
     return [...movies].sort(() => 0.5 - Math.random()).slice(0, count);
   };
 
-  // Render the grid of featured movies
+  // Render the component with a grid layout showcasing the featured movies.
   return (
     <div className="grid-container">
       {/* Map through featuredMovies and render each movie */}

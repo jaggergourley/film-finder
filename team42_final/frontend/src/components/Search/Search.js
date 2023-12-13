@@ -1,4 +1,8 @@
 // src/components/Search/Search.js
+/*
+Search component allows users to find movies based on various criteria such as title, director, actor, and genre. 
+It manages the search form inputs and displays the search results using MovieCard components.
+*/
 
 import React, { useState } from "react";
 import axios from "axios";
@@ -82,6 +86,7 @@ const Search = () => {
     );
   };
 
+  // Renders the search form and the results grid.
   return (
     <div>
       <form onSubmit={handleSubmit} className="search-form">

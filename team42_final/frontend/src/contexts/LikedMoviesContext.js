@@ -1,4 +1,5 @@
 // src/contexts/LikedMoviesContext.js
+// This file creates and exports LikedMoviesContext and LikedMoviesProvider for global state management of user's liked movies.
 
 import React, { createContext, useState } from "react";
 
@@ -29,7 +30,7 @@ export const LikedMoviesProvider = ({ children }) => {
     );
   };
 
-  // Provide the liked movies state and functions to child components
+  // Context provider passing down likedMovies state and utility functions to the child components
   return (
     <LikedMoviesContext.Provider
       value={{ likedMovies, likeMovie, unlikeMovie, updateLikedMovie }}

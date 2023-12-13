@@ -1,6 +1,6 @@
 /* src/components/Browse/Browse.css */
 
-/* Dropdown menu styling */
+/* Styles for the dropdown menu used for sorting the movie list. Designed to match the app's dark theme and ensure clear legibility. */
 .dropdown {
   padding: 10px 15px; /* Adequate padding for user comfort */
   background-color: #2e2e2e; /* Dark theme background */
@@ -12,7 +12,7 @@
   width: 200px; /* Standard width for uniformity */
 }
 
-/* Grid layout for movie items */
+/* Establishes a responsive grid layout for movie cards, providing a structured and visually balanced display. */
 .movie-grid {
   display: grid; /* Utilizing grid layout */
   grid-template-columns: repeat(4, 1fr); /* Four equal-width columns */

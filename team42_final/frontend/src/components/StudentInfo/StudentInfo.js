@@ -1,9 +1,11 @@
 // src/components/StudentInfo/StudentInfo.js
 
+//StudentInfo component displays static information about the course and students.
+
 import React from "react";
 import "./StudentInfo.css";
 
-// Functional component for displaying student information
+// Render static content with course, professor, and student details.
 const StudentInfo = () => {
   return (
     <div className="parent-container">

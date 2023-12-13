@@ -1,21 +1,17 @@
 // backend/index.js
+// This is the main server file where we set up our RESTful API endpoints to interact with the Movie database.
 
-// Import necessary libraries and modules
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const Movie = require("./models/Movie"); // Import the Movie model for database operations
+const Movie = require("./models/Movie"); // Model for interfacing with the movie data in MongoDB
 
-// Create an Express application
 const app = express();
 
-// Enable Cross-Origin Resource Sharing for all routes
-app.use(cors());
+app.use(cors()); // Enable CORS for all routes so that the API is accessible from a different domain
+app.use(express.json()); // Middleware to parse incoming JSON payloads in request bodies
 
-// Parse JSON bodies in requests
-app.use(express.json());
-
-// Connect to MongoDB
+// Connect to MongoDB at the specified URI
 mongoose.connect("mongodb://127.0.0.1:27017/team42db", {});
 
 // Define an endpoint to retrieve all movies with optional sorting
@@ -28,18 +24,21 @@ app.get("/movies", async (req, res) => {
     if (req.query.title) {
       query = query.where("title").equals(new RegExp(req.query.title, "i"));
     }
+
     // Filtering for director
     if (req.query.director) {
       query = query
         .where("director")
         .equals(new RegExp(req.query.director, "i"));
     }
+
     // Filtering for actors
     if (req.query.actor) {
-      // Create a regular expression to search for the actor's name in the comma-separated list
+      // Regular expression to search for the actor's name in the comma-separated list
       const actorRegex = new RegExp(req.query.actor.split(" ").join("|"), "i");
       query = query.where("actors").regex(actorRegex);
     }
+
     // Filtering for genre
     if (req.query.genre) {
       const genreRegex = new RegExp(req.query.genre, "i"); // Case-insensitive regex
@@ -55,19 +54,6 @@ app.get("/movies", async (req, res) => {
 
     const movies = await query.exec();
     res.json(movies); // Send the resulting list of movies
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
-
-// Define an endpoint to retrieve a single movie by its ID
-app.get("/movies/:id", async (req, res) => {
-  try {
-    const movie = await Movie.findById(req.params.id); // Find the movie by ID
-    if (!movie) {
-      return res.status(404).send("Movie not found."); // If no movie is found, return 404
-    }
-    res.json(movie); // Send the found movie
   } catch (error) {
     res.status(500).send(error.message);
   }

@@ -1,4 +1,8 @@
 // src/components/MovieDialog/MovieDialog.js
+/*
+MovieDialog provides a detailed view of a selected movie. 
+It includes options for editing, deleting, or closing the dialog, enhancing the user experience with interactive capabilities.
+*/
 
 import React, { useState } from "react";
 import EditMovieDialog from "../EditMovieDialog/EditMovieDialog";
@@ -11,7 +15,7 @@ const MovieDialog = ({ movie, onClose, onDelete, onUpdate }) => {
   // Return null if no movie is provided
   if (!movie) return null;
 
-  // Handle delete action and close the dialog afterwards
+  // Handle the various actions like delete, edit, and update within the dialog.
   const handleDelete = () => {
     onDelete(movie._id);
     onClose();
@@ -40,7 +44,7 @@ const MovieDialog = ({ movie, onClose, onDelete, onUpdate }) => {
     return `${hours}h ${minutes}m`;
   };
 
-  // Render the dialog with movie details
+  // Render the dialog with comprehensive movie details, along with interactive buttons.
   return (
     <div className="movie-dialog-backdrop">
       <div className="movie-dialog-content">

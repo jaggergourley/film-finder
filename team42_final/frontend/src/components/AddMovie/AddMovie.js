@@ -1,11 +1,12 @@
 // src/components/AddMovie/AddMovie.js
+// This component provides an interface for users to add new movie entries to the database.
 
 import React, { useState } from "react";
 import axios from "axios";
 import "./AddMovie.css";
 
 const AddMovie = () => {
-  // State to manage form inputs and feedback message
+  // State to store input values for the new movie and a message to provide user feedback
   const [newMovie, setNewMovie] = useState({
     title: "",
     description: "",
@@ -19,12 +20,12 @@ const AddMovie = () => {
   });
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
-  // Function to update the form inputs as they change
+  // Updates the state for newMovie when the user types into the form fields
   const handleChange = (e) => {
     setNewMovie({ ...newMovie, [e.target.name]: e.target.value });
   };
 
-  // Function to handle form submission
+  // Handles the form submission event with validation and API call to add the movie
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -49,6 +50,7 @@ const AddMovie = () => {
     }
   };
 
+  // Renders the form for adding a new movie with inputs for each movie attribute
   return (
     <div className="add-movie-container">
       <h1>Add New Movie</h1>

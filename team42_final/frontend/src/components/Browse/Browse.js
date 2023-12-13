@@ -1,4 +1,8 @@
 // src/components/Browse/Browse.js
+/* 
+  The Browse component provides a user interface for viewing the full list of movies.
+  It includes functionality for sorting and managing movies, with live updates upon user interaction.
+*/
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -19,7 +23,7 @@ const Browse = () => {
     fetchSortedMovies();
   }, [sortCriteria]);
 
-  // Function to fetch movies with sorting parameters
+  // Fetches movies from the server with current sorting criteria applied. Updates the movies state.
   const fetchSortedMovies = async () => {
     try {
       // Send a GET request with sort parameters
@@ -75,7 +79,7 @@ const Browse = () => {
     );
   };
 
-  // Render the Browse component
+  // Renders the Browse UI with sorting controls and a grid of movies.
   return (
     <div>
       {/* Dropdown for sorting movies */}

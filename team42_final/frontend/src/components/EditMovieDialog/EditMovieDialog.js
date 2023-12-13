@@ -1,4 +1,8 @@
 // src/components/EditMovieDialog/EditMovieDialog.js
+/*
+  EditMovieDialog component allows users to edit the details of an existing movie.
+  It is invoked from the MovieDialog component and uses a form to capture user inputs.
+*/
 
 import React, { useState } from "react";
 import axios from "axios";
@@ -14,7 +18,7 @@ const EditMovieDialog = ({ movie, onClose, onUpdated, onSuccessfulUpdate }) => {
     setEditedMovie({ ...editedMovie, [e.target.name]: e.target.value });
   };
 
-  // Function to handle the form submission for updating the movie
+  // Handles form submission to update the movie. Utilizes PUT request and updates parent component state.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,6 +38,7 @@ const EditMovieDialog = ({ movie, onClose, onUpdated, onSuccessfulUpdate }) => {
     }
   };
 
+  // Renders a modal dialog with a form for editing movie details.
   return (
     <div className="edit-movie-dialog-backdrop">
       <div className="edit-movie-dialog-content">

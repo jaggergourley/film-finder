@@ -14,6 +14,7 @@
   text-align: center; /* Center aligns the text */
 }
 
+/* Specific styling for the header and paragraph within the jumbotron */
 .jumbotron .display-4, .jumbotron .lead {
   padding-left: 1rem; /* Adds padding to the left of the header and paragraph */
   text-align: left; /* Aligns text to the left */

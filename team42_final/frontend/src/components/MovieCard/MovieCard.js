@@ -1,6 +1,9 @@
 // src/components/MovieCard/MovieCard.js
+/*
+This component represents an individual movie card in the application.
+It displays key movie details and provides the functionality to like/unlike movies.
+*/
 
-// Import React and context hook
 import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { LikedMoviesContext } from "../../contexts/LikedMoviesContext";
@@ -14,7 +17,7 @@ const MovieCard = ({ movie, onClick }) => {
   // Check if the current movie is liked
   const isLiked = likedMovies.some((m) => m._id === movie._id);
 
-  // Handle like/unlike action
+  // Toggles the like status of the movie.
   const handleLike = (e) => {
     e.stopPropagation(); // Prevent click event from bubbling to parent elements
     if (isLiked) {
@@ -24,7 +27,7 @@ const MovieCard = ({ movie, onClick }) => {
     }
   };
 
-  // Render the movie card
+  // Renders a card that displays movie information and a like/unlike button.
   return (
     <div className="card movie-card" onClick={() => onClick(movie)}>
       <img src={movie.poster} className="card-img-top" alt={movie.title} />

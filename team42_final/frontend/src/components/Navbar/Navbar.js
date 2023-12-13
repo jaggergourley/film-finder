@@ -1,10 +1,15 @@
 // src/components/Navbar/Navbar.js
-
+/* 
+Navbar component creates a navigation bar for the app. 
+It utilizes the Link component from react-router-dom to enable smooth navigation between different views of the application.
+*/
 import React from "react";
 import { Link } from "react-router-dom";
 
 // Functional component for the navigation bar
 const Navbar = () => {
+  // Render the navigation bar with links to various sections of the application.
+  // Each Link component corresponds to a route defined in App.js.
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">

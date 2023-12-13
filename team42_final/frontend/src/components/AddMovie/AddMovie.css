@@ -1,6 +1,6 @@
 /* src/components/AddMovie/AddMovie.css */
 
-/* Container for the Add Movie form */
+/* Container for the Add Movie form, setting the maximum width for layout and centering */
 .add-movie-container {
     max-width: 1000px; /* Optimal width for single-column layout */
     margin: auto; /* Centering the form horizontally */
@@ -9,14 +9,14 @@
     color: #dcdcdc; /* Light text for contrast against dark background */
 }
 
-/* Style for form labels */
+/* Labels for form inputs, clearly distinguishing them from input fields */
 .add-movie-container label {
     display: block; /* Each label on its own line */
     margin-bottom: 5px; /* Space between label and corresponding input */
     font-weight: bold; /* Bold font for label emphasis */
 }
 
-/* Style for input fields within the form */
+/* Input fields for movie attributes, ensuring readability and ease of interaction */
 .add-movie-container input {
     width: 100%; /* Full width to utilize column space */
     padding: 10px; /* Comfortable padding for user interaction */
@@ -27,12 +27,12 @@
     color: #dcdcdc; /* Text color for readability */
 }
 
-/* Highlight focus state for better user interaction */
+/* Emphasizes the input field currently in focus to improve user experience */
 .add-movie-container input:focus {
     outline: 2px solid #4b7bec; /* Blue outline to indicate active field */
 }
 
-/* Button styling for form submission */
+/* Submission button styled to stand out and prompt user action */
 .add-movie-container button {
     padding: 10px 15px; /* Adequate padding for ease of use */
     border-radius: 5px; /* Smooth corners for a modern look */
@@ -44,7 +44,7 @@
     color: #fff; /* High contrast text for legibility */
 }
 
-/* Feedback message styling for user notification */
+/* Feedback message to notify the user of the result of their action (success or failure) */
 .add-movie-container p {
     margin-top: 15px; /* Space above message for separation */
     color: #ffcc00; /* Bright color for visibility */
